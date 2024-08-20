@@ -1,13 +1,23 @@
 package com.br.mt.task.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class Task {
 
+    @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
+    @Column(columnDefinition = "DATE")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate dueDate;
     private Boolean completed = false;
 
