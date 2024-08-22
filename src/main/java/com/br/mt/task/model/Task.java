@@ -14,10 +14,8 @@ public class Task {
     private Long id;
     private String title;
     private String description;
-    @Column(columnDefinition = "DATE")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDate dueDate;
-    private Boolean completed = false;
+    private Boolean completed;
 
     public Task() {}
 
